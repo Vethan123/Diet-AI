@@ -9,6 +9,7 @@ import ChatPage from "./pages/ChatPage";
 import ProfilePage from "./pages/ProfilePage";
 import ResultsPage from "./pages/ResultsPage";
 import NotFound from "./pages/NotFound";
+import AboutPage from "./pages/AboutPage";
 const queryClient = new QueryClient();
 
 const App = () => ( 
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

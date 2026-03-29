@@ -48,7 +48,7 @@ const DaysConfigPage = () => {
     }
   };
 
-  const percentage = ((value - 7) / (60 - 7)) * 100;
+  const percentage = ((value - 1) / (15 - 1)) * 100;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
@@ -107,8 +107,8 @@ const DaysConfigPage = () => {
           </div>
           
           <div className="flex justify-between text-xs text-muted-foreground mb-10 px-2">
-            <span>7 days</span>
-            <span>60 days</span>
+            <span>1 day</span>
+            <span>15 days</span>
           </div>
 
           <motion.button
