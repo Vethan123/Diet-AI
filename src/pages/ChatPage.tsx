@@ -127,28 +127,30 @@ const ChatPage = () => {
     }
   };
 
-  const fetchAnalytics = async () => {
-    setIsAnalyticsOpen(true);
-    setIsAnalyticsLoading(true);
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/get_user_stats`, {
-        method:'GET',
-        credentials: 'include',
-      });
-      const data = await response.json();
-      const sheet = data.user_details.overall_nutrient_sheet;
-      const chartMap = Object.keys(sheet).map(nutrient => ({
-        name: nutrient.split(' (')[0],
-        value: sheet[nutrient].reduce((a: number, b: number) => a + b, 0),
-        fullValue: `${sheet[nutrient].reduce((a: number, b: number) => a + b, 0)} ${nutrient.includes('mg') ? 'mg' : 'kcal'}`
-      })).filter(d => d.value > 0);
-      setAnalyticsData(chartMap);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsAnalyticsLoading(false);
-    }
-  };
+ const fetchAnalytics = async () => {
+  setIsAnalyticsOpen(true);
+  setIsAnalyticsLoading(true);
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/get_user_stats`, {
+      method: 'GET',
+      credentials: 'include',
+    });
+    const data = await response.json();
+    const sheet = data.user_details.overall_nutrient_sheet;
+    const chartMap = Object.keys(sheet).map(nutrient => ({
+      name: nutrient.split(' (')[0],
+      value: sheet[nutrient].reduce((a: number, b: number) => a + b, 0),
+      fullValue: `${sheet[nutrient].reduce((a: number, b: number) => a + b, 0)} ${nutrient.includes('mg') ? 'mg' : 'kcal'}`
+    })); // REMOVED .filter(d => d.value > 0)
+
+    setAnalyticsData(chartMap);
+  } catch (error) {
+    console.error(error);
+    setAnalyticsData([]);
+  } finally {
+    setIsAnalyticsLoading(false);
+  }
+};
 
   const handlePopupAction = async (type: "summary" | "review") => {
     setPopupContent(null);
@@ -234,7 +236,7 @@ const ChatPage = () => {
                     </div>
 
                     {/* RESTORED BUTTONS: Summary & Review */}
-                    {msg.role === "bot" && (msg.modelName === "nutri_orchestrator") && (
+                    {msg.role === "bot" && (msg.modelName === "nutri_scanner") && (
                       <div className="flex gap-2 mt-4 pt-3 border-t border-border/50">
                         <button 
                           onClick={() => handlePopupAction("summary")} 
@@ -310,8 +312,15 @@ const ChatPage = () => {
   {isAnalyticsLoading ? (
     <div className="h-full flex items-center justify-center"><LinearEmojiLoader /></div>
   ) : (
-    /* Dynamic height: 40px per bar ensures they never overlap */
-    <div style={{ height: `${Math.max(400, analyticsData.length * 45)}px` }} className="w-full">
+    <div style={{ height: `${Math.max(400, analyticsData.length * 45)}px` }} className="w-full relative">
+      
+      {/* ADDED: Empty state overlay text if needed */}
+      {analyticsData.length === 0 && (
+        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-xs uppercase tracking-widest pointer-events-none">
+          No data logged yet
+        </div>
+      )}
+
       <ResponsiveContainer width="100%" height="100%">
         <BarChart 
           data={analyticsData} 
@@ -319,20 +328,21 @@ const ChatPage = () => {
           margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="rgba(255,255,255,0.05)" />
-          <XAxis type="number" hide />
+          <XAxis type="number" hide domain={[0, 'dataMax + 10']} /> {/* Added domain to ensure empty graph looks scaled */}
           <YAxis 
             dataKey="name" 
             type="category" 
-            width={130} // Slightly wider for long nutrient names
+            width={130}
             tick={{ fontSize: 12, fontWeight: 800, fill: "hsl(var(--foreground))" }} 
             axisLine={false} 
             tickLine={false} 
-            interval={0} // FORCES ALL LABELS TO SHOW
+            interval={0} 
           />
           <Tooltip 
             cursor={{ fill: 'rgba(var(--primary), 0.05)' }} 
+            // Only show tooltip if there's actually a value
             content={({ active, payload }) => {
-              if (active && payload && payload.length) {
+              if (active && payload && payload.length && payload[0].value > 0) {
                 return (
                   <div className="bg-popover border border-border p-3 rounded-xl shadow-xl">
                     <p className="text-[10px] font-black text-primary uppercase">{payload[0].payload.name}</p>

@@ -141,7 +141,7 @@ const AuthPage = () => {
 
               {/* Username Field */}
               <div>
-                <label className="block text-sm font-medium mb-1.5 ml-1">Username</label>
+                <label className="block text-sm font-medium mb-1.5 ml-1">Username or Email</label>
                 <input
                   type="text"
                   value={form.username}
@@ -151,7 +151,7 @@ const AuthPage = () => {
                       ? 'border-red-600 focus:ring-red-600/20' 
                       : 'border-border focus:ring-primary/20 focus:border-primary'
                   }`}
-                  placeholder="Enter Username"
+                  placeholder="Enter Username or Email"
                 />
                 {errors.username && (
                   <p className="text-red-500 text-[11px] font-medium mt-1.5 ml-1 flex items-center gap-1">

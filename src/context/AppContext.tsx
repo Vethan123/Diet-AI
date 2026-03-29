@@ -7,7 +7,7 @@ interface User {
   overall_nutrients_sheet: Record<string, number[]>;
   attendance: boolean[];
   frequency: number[];
-  time_frame: number | null; // Changed to allow null for reset state
+  time_frame: number | null; 
   start_date: string | null;
 }
 
