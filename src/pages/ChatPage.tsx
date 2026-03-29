@@ -101,8 +101,7 @@ const ChatPage = () => {
       });
 
       const data = await response.json();
-      console.log(data);
-      const botContent = data.nutri_scanner || data.omni_knowledge_bot || "No response received.";
+      const botContent = data.output.nutri_scanner || data.output.omni_knowledge_bot || "No response received.";
       
       setMessages((prev) => [
         ...prev, 
@@ -110,7 +109,7 @@ const ChatPage = () => {
           id: (Date.now() + 1).toString(), 
           role: "bot", 
           content: botContent, 
-          modelName: data.agent_name 
+          modelName: data.agent_used 
         }
       ]);
     } catch (error) {
@@ -120,7 +119,7 @@ const ChatPage = () => {
           id: "err-" + Date.now(), 
           role: "bot", 
           content: "Sorry, I encountered an error processing that request.", 
-          modelName: "omri_knowledge_bot" 
+          modelName: "omni_knowledge_bot" 
         }
       ]);
     } finally {
@@ -163,7 +162,7 @@ const ChatPage = () => {
         credentials: 'include',
       });
       const data = await res.json();
-      setPopupContent(type === "summary" ? data.diet_builder : `### Nutrition Reflection\n${data.nutri_reflector}\n\n### Attendance Status\n${data.missy_monitor}`);
+      setPopupContent(type === "summary" ? data.output.diet_builder : `### Nutrition Reflection\n${data.output.nutri_reflector}\n\n### Attendance Status\n${data.output.missy_monitor}`);
     } catch (e) { 
       setPopupContent("Error loading data."); 
     } finally { 
