@@ -76,19 +76,19 @@ const AuthPage = () => {
           <h1 className="text-6xl font-black tracking-tighter leading-[0.9] mb-6">
             Meet the <br />
             <span className="text-primary drop-shadow-2xl">Council</span> of <br />
-            Specialists.
+            AI Agents.
           </h1>
           
           <p className="text-muted-foreground text-lg max-w-md leading-relaxed mb-10 font-medium">
-            Beyond simple tracking. Diet AI uses a multi-agent architecture to analyze, scan, and coach you toward your health goals.
+            Beyond simple tracking, Diet AI uses a multi-agent architecture to analyze, suggest, and guide you towards balanced diet.
           </p>
 
           <div className="grid grid-cols-2 gap-4">
             {[
               { icon: <Zap size={18} />, title: "Real-time Analysis", desc: "Instant nutrient breakdown of any meal." },
-              { icon: <BrainCircuit size={18} />, title: "Agent Council", desc: "5 specialized AI models working for you." },
+              { icon: <BrainCircuit size={18} />, title: "Agent Council", desc: "5 specialized AI Agents working for you." },
               { icon: <ShieldCheck size={18} />, title: "Data Privacy", desc: "Enterprise-grade encryption for your logs." },
-              { icon: <Sparkles size={18} />, title: "Smart Coaching", desc: "Proactive suggestions based on habits." }
+              { icon: <Sparkles size={18} />, title: "Smart Coaching", desc: "Guides you towards balanced diet." }
             ].map((feature, i) => (
               <motion.div 
                 key={i}

@@ -37,7 +37,7 @@ const ChatPage = () => {
   const navigate = useNavigate();
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { id: "1", role: "bot", content: "Hello! I'm **Diet AI**. How can I help?", modelName: "omni_knowledge_bot" }
+    { id: "1", role: "bot", content: "Hey! Had your meal? What did you ate today?", modelName: "omni_knowledge_bot" }
   ]);
   const [selectedDayIndex, setSelectedDayIndex] = useState<number>(0);
   const [rawSheet, setRawSheet] = useState<any>(null);

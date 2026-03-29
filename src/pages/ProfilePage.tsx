@@ -173,7 +173,7 @@ const ProfilePage = () => {
             <p className="text-[10px] font-medium text-muted-foreground mb-8 truncate max-w-full italic">{user?.email}</p>
             
             <div className="w-full py-6 bg-muted/20 rounded-[2rem] border border-border/20">
-              <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2">Performance Index</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2">Performance Score</p>
               <MeterGauge value={loading ? 0 : score} />
             </div>
           </div>
@@ -221,7 +221,7 @@ const ProfilePage = () => {
                            day.status === 'completed' ? 'text-green-600' : 
                            day.status === 'skipped' ? 'text-red-600' : 'text-muted-foreground'
                         }`}>
-                          {day.isToday ? "Current Window" : day.status}
+                          {day.isToday ? "Today" : day.status}
                         </p>
                       </div>
                     </div>

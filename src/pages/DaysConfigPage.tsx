@@ -76,7 +76,7 @@ const DaysConfigPage = () => {
           </motion.div>
 
           <h2 className="text-2xl font-bold text-foreground mb-2">Configure Your Journey</h2>
-          <p className="text-muted-foreground text-sm mb-10">Select how many days you'd like to engage with NexusAI</p>
+          <p className="text-muted-foreground text-sm mb-10">Select how many days you'd like to engage with DietAI</p>
 
           <motion.div
             key={value}

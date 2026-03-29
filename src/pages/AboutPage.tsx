@@ -90,7 +90,7 @@ const AboutPage = () => {
         {/* 🤖 THE COUNCIL SHOWCASE */}
         <section className="mb-32">
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-2xl font-black uppercase tracking-tighter">The AI Council</h2>
+            <h2 className="text-2xl font-black uppercase tracking-tighter">The Council of Agents</h2>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
           
