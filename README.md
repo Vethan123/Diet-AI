@@ -1,77 +1,69 @@
-# 🥗 Diet AI: Intelligent Nutritional Architecture
+# 🥗 Diet-AI: Your Personal Nutrition Enforcer
 
-**Diet AI** is a high-performance, multi-agent ecosystem designed to bridge the gap between human appetite and biological necessity. Unlike generic calorie trackers, Diet AI uses a **Council of AI Agents** and a **Strict Scoring Algorithm** to enforce genuine dietary discipline.
+**Diet-AI** isn't just another calorie counter. It is an intelligent, AI-driven ecosystem designed to bridge the gap between your appetite and your biological needs through real-time coaching and a **"No-Cheating"** discipline system.
 
-> **"You can't cheat your biology, and you can't cheat Diet AI."**
-
----
-
-## 🚀 Core Features
-- **Multi-Agent Orchestration:** Specialized agents for scanning, building, and reflecting on your diet.
-- **Smart Timeframe Tracking:** Set your goal duration and let the system monitor your progress.
-- **Natural Language Processing:** Log meals like "I ate 2 Idlis with coconut chutney" or just have a "Nutri-Chat."
----
-
-## 🧠 The AI Council (Backend Agents)
-Diet AI leverages a specialized multi-agent architecture to handle complex nutritional logic:
-
-* **Nutri Orchestrator:** The gatekeeper. Decides if your query is a meal log, a generic question, or a deep nutritional analysis.
-* **Nutri Scanner:** The analyst. Breaks down natural language food queries into precise micro/macro-nutrient data.
-* **Diet Builder:** The strategist. Performs gap analysis between your current intake and "Balanced Diet" targets to suggest specific foods.
-* **Nutri Reflector:** The critic. Provides a high-level review of your performance over your active timeframe.
-* **Missy Monitor:** The enforcer. Scolds and penalizes users for skipped days to ensure data integrity.
-* **Omni Knowledge Bot:** The scholar. Handles general health inquiries and chit-chat.
+> **"You can't cheat your biology, and you can't cheat Diet-AI."**
 
 ---
 
-## 🔐 The "Anti-Cheat" Scoring Engine
-Our scoring algorithm is mathematically designed to be **strict, fair, and manipulation-resistant.**
+## 🌟 How It Works
+Diet-AI uses a **Council of AI Agents** that act as your digital nutrition team. Instead of manually searching for calories, you simply talk to the AI, and it manages your health journey.
 
-### 🚫 Anti-Manipulation Logic
-1.  **Overconsumption Penalty:** You cannot "make up" for a bad day by overeating healthy nutrients later. High-risk nutrients (Sodium, Fats) are penalized exponentially if they exceed limits.
-2.  **Frequency Enforcement:** Logging 10 meals in one hour to "boost" scores is detected and flagged as suspicious behavior.
-3.  **Consistency Mandate:** Missing logs directly reduces your score. Silence is interpreted as failure.
+### Meet Your AI Coaching Team:
+* **The Scanner:** Just tell it what you ate (e.g., *"2 Idlis and coconut chutney"*). It identifies the nutrients automatically.
+* **The Builder:** Analyzes exactly what you're missing and suggests the right foods to eat next to stay balanced.
+* **The Reflector:** Provides a "brutally honest" review of your performance over your chosen timeframe.
+* **Missy Monitor:** The enforcer. If you forget to log your meals, expect to get scolded. Consistency is mandatory here.
+* **Knowledge Bot:** Have a general question? Ask anything from *"Is coffee good for me?"* to a simple *"How's it going?"*
 
-### 🎯 Mathematical Models
-* **Exponential Decay:** `score = exp(-penalty * deviation)` — Small mistakes are okay; large deviations cause sharp score drops.
-* **Quadratic Penalty:** Overconsumption is penalized via an `overshoot_factor²` to prevent artificial balancing.
-* **Logarithmic Growth:** The **Discipline Bonus** (up to 20% of the total score) rewards long-term habit formation using a `log(1 + days)` curve.
+### System Architecture & Logic Flow
+To ensure every meal log is processed accurately and every "cheat" is detected, Diet-AI follows a sophisticated internal logic:
 
----
-
-## 🛠️ Tech Stack & Infrastructure
-
-### Frontend
-- **Framework:** React 18 + TypeScript
-- **Styling:** Tailwind CSS + Shadcn/UI
-- **Animations:** Framer Motion (System-level aesthetic)
-- **State Management:** TanStack Query (React Query)
-
-### Backend
-- **Engine:** FastAPI (Python 3.14+)
-- **Database:** MongoDB (Aggregation Pipelines for nutrient gap analysis)
-- **Security:** JWT/Cookie Authentication
----
-
-## 🔌 API Documentation
-The server is fully documented via Swagger UI.
-- **Hosted Server:** `https://diet-ai-server-kju8.onrender.com`
-- **Interactive Docs:** [https://diet-ai-server-kju8.onrender.com/docs](https://diet-ai-server-kju8.onrender.com/docs)
-
-### Primary Endpoints
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/signup` | Initialize user profile and timeframe |
-| `POST` | `/login` | Secure session initialization (HttpOnly Cookies) |
-| `POST` | `/start` | Primary gateway for meal logs and AI chat |
-| `GET` | `/diet_suggestions` | Get "Diet Builder" gap-analysis recommendations |
-| `GET` | `/calculate_score` | Get real-time strict performance score |
-| `GET` | `/check_skips` | Trigger "Missy Monitor" for attendance review |
+<img width="854" height="639" alt="Diet-AI System Flow Chart" src="https://github.com/user-attachments/assets/7087141e-6e6d-4f29-a214-a67225f68861" />
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Getting Started in 3 Steps
 
-1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/Vethan123/Diet-AI.git](https://github.com/Vethan123/Diet-AI.git)
+### 1. Set Your Timeframe
+When you first log in, Diet-AI will ask you for a tracking duration. Once set, the AI locks in and begins monitoring your discipline for that entire window.
+
+### 2. Log Your Meals (Natural Talk)
+No more searching through endless databases for "100g of Chicken." Just talk to the app like a friend:
+* *"Hey, today I ate Idli with coconut chutney."*
+* *"Had a heavy Biryani for lunch with a Coke."*
+* *...or just ask for advice:* *"What should I eat to increase my protein today?"*
+
+### 3. Check Your Discipline Score
+Your **Live Score (0–100)** tells you exactly how well you are performing. Our algorithm is strict—the higher the score, the better your actual habits.
+
+---
+
+## 🔐 Why You Can't Cheat the System
+We built a **Strict Scoring Engine** to ensure you stay honest with yourself. Here is how the AI catches "manipulation" behavior:
+
+* **🚫 The Overconsumption Penalty:** You can't "make up" for a bad day by overeating healthy nutrients later. Over-consuming specific high-risk nutrients (like Sodium or Fats) triggers a heavy score drop.
+* **🚫 Selective Logging Prevention:** Think you can just "forget" to log a junk food meal? **Missy Monitor** tracks your logging frequency. If you skip entries, your score is penalized automatically.
+* **🚫 Frequency Enforcement:** You cannot inflate your score by logging 10 healthy snacks in one hour. The AI detects "suspicious patterns" and rewards realistic, steady eating.
+
+---
+
+## 🏆 The Discipline Bonus
+We reward **Consistency over Perfection**. 
+* **Steady Logging:** The longer you go without missing a day, the higher your "Consistency Bonus" grows.
+* **Habit Formation:** The system uses a growth model that rewards long-term dedication, contributing up to **20% of your final score**.
+
+---
+
+## 📱 Quick Features
+* **Start Chatting:** Log meals, ask questions, or just have a normal chit-chat.
+* **Diet Suggestions:** Get a customized list of foods to move a step closer to a balanced diet.
+* **Performance Review:** Get summarized remarks about your current progress.
+* **Calculate Score:** See your real-time performance scaled from 0 to 100.
+* **Reset:** Finished a goal? Reset your timeframe and start a fresh journey.
+
+---
+**Ready to get disciplined?** [Launch Diet-AI Dashboard](https://get-healthy-with-diet-ai.netlify.app)
+
+---
+*Engineered for genuine healthy habits and long-term discipline.*
