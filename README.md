@@ -95,8 +95,8 @@ We reward **Consistency over Perfection**.
 
 Built by:
 
-| Name | GitHub |
-|------|--------|
+| Name |
+|------|
 | [Yadam Vethan](https://github.com/vethan123) |
 | [Vinay Yadam](https://github.com/YadamVinay369) |
 
