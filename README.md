@@ -94,8 +94,11 @@ We reward **Consistency over Perfection**.
 ## 👨‍💻 Contributors
 
 Built by:
-[Yadam Vethan](https://github.com/vethan123) 
-[Vinay Yadam](https://github.com/YadamVinay369)
+
+| Name | GitHub |
+|------|--------|
+| [Yadam Vethan](https://github.com/vethan123) |
+| [Vinay Yadam](https://github.com/YadamVinay369) |
 
 ---
 
